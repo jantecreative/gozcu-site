@@ -1,0 +1,8 @@
+<svg role="img" aria-label="Gözcü" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#121212"/><g transform="translate(10 16) scale(1)" >
+    <mask id="m9"><rect x="-2" y="-2" width="44" height="36" fill="#fff"/><circle cx="10.5" cy="21.5" r="4.2" fill="#000"/><circle cx="29.5" cy="21.5" r="4.2" fill="#000"/></mask>
+    <g fill="#E3262B" mask="url(#m9)">
+      <rect x="6.5" y="0" width="8" height="6" rx="2"/><rect x="25.5" y="0" width="8" height="6" rx="2"/>
+      <rect x="4.5" y="4" width="12" height="14" rx="3"/><rect x="23.5" y="4" width="12" height="14" rx="3"/>
+      <rect x="15" y="7.5" width="10" height="6.5" rx="1.5"/>
+      <circle cx="10.5" cy="21.5" r="10"/><circle cx="29.5" cy="21.5" r="10"/>
+    </g></g></svg>
