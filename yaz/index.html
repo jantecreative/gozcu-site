@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Kanal ve tek kullanımlık kod adresin # kısmındadır; sayfa hiçbir dış kaynak yüklemez ve başka siteye adres sızdırmaz. -->
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'self'; connect-src https:; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#16181e">
+  <title>Gözcü</title>
+  <style>
+    :root { --bg: oklch(0.17 0.012 262); --bg2: oklch(0.215 0.012 262); --line: oklch(0.3 0.012 262); --fg: oklch(0.96 0.004 262); --muted: oklch(0.72 0.01 262); --accent: oklch(0.72 0.13 250); --accent-ink: oklch(0.17 0.03 260); --ok: oklch(0.78 0.15 150); --err: oklch(0.75 0.16 25); color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100dvh; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding: max(20px, env(safe-area-inset-top)) 18px max(20px, env(safe-area-inset-bottom)); }
+    main { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    header { display: flex; align-items: center; gap: 10px; }
+    header img { width: 28px; height: 28px; }
+    header b { font-size: 17px; }
+    header span { color: var(--muted); font-size: 14px; margin-left: auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 55%; }
+    .said { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; font-size: 15px; color: var(--muted); white-space: pre-wrap; }
+    .said small { display: block; font-size: 12px; margin-bottom: 4px; color: var(--muted); opacity: 0.8; }
+    .said p { margin: 0; color: var(--fg); }
+    textarea { width: 100%; min-height: 150px; resize: vertical; font: inherit; font-size: 17px; color: var(--fg); background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+    textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    button { font: inherit; font-weight: 600; font-size: 17px; border: 0; border-radius: 14px; padding: 14px; background: var(--accent); color: var(--accent-ink); }
+    button:disabled { opacity: 0.5; }
+    .hint { font-size: 13.5px; color: var(--muted); margin: 0; }
+    .msg { font-size: 15px; margin: 0; }
+    .msg.ok { color: var(--ok); }
+    .msg.err { color: var(--err); }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main>
+    <header><img src="../assets/logo.svg" alt=""><b>Gözcü</b><span id="project"></span></header>
+    <div class="said" id="said" hidden><small id="saidLabel"></small><p id="saidText"></p></div>
+    <form id="form">
+      <textarea id="text" maxlength="2000" required></textarea>
+    </form>
+    <button id="send" type="submit" form="form"></button>
+    <p class="msg" id="msg" role="status" aria-live="polite"></p>
+    <p class="hint" id="hint"></p>
+  </main>
+  <script>
+    const TEXT = {
+      tr: { said: 'Claude\'un son cevabı', ph: 'Claude\'a ne yazmak istersin?', send: 'Gönder', sending: 'Gönderiliyor…',
+        ok: 'Gönderildi. Gözcü mesajını terminale yazdı; Claude bitirince yine bildirim gelir.', fail: 'Gönderilemedi. İnternet bağlantını kontrol edip tekrar dene.',
+        used: 'Bu bağlantı zaten kullanıldı. Yeni mesaj için bir sonraki bildirimdeki "Yanıt yaz" düğmesine bas.', bad: 'Bu bağlantı eksik ya da bozuk. Telefondaki Gözcü bildiriminden aç.',
+        hint: 'Bu bağlantı tek kullanımlıktır ve 30 dakika geçerlidir. Bu arada bilgisayardan yazarsan geçersiz olur.' },
+      en: { said: 'Claude\'s last reply', ph: 'What do you want to tell Claude?', send: 'Send', sending: 'Sending…',
+        ok: 'Sent. Gözcü typed your message into the terminal; you will get another notification when Claude is done.', fail: 'Couldn\'t send. Check your connection and try again.',
+        used: 'This link has already been used. For a new message, tap "Reply" on the next notification.', bad: 'This link is incomplete or broken. Open it from the Gözcü notification on your phone.',
+        hint: 'This link works once and for 30 minutes. It stops working if you type on the computer in the meantime.' },
+    };
+    const $ = id => document.getElementById(id);
+    let d = null;
+    try {
+      const b64 = location.hash.slice(1).replace(/-/g, '+').replace(/_/g, '/');
+      d = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(b64), c => c.charCodeAt(0))));
+    } catch { d = null; }
+    const valid = d && typeof d.h === 'string' && /^https:\/\/[^/]+$/.test(d.h) && /^[\w-]{1,80}$/.test(d.t || '') && typeof d.s === 'string' && typeof d.n === 'string';
+    const lang = d && d.l === 'en' ? 'en' : (!d && !navigator.language.startsWith('tr') ? 'en' : 'tr');
+    const t = TEXT[lang];
+    document.documentElement.lang = lang;
+    $('text').placeholder = t.ph;
+    $('send').textContent = t.send;
+    $('hint').textContent = t.hint;
+    const usedKey = d ? `gozcu.sent.${d.n}` : '';
+    function done(text, cls) { $('msg').textContent = text; $('msg').className = `msg ${cls}`; $('form').hidden = true; $('send').hidden = true; $('hint').hidden = true; }
+    if (!valid) done(t.bad, 'err');
+    else {
+      if (typeof d.p === 'string') $('project').textContent = d.p;
+      if (typeof d.q === 'string' && d.q) { $('saidLabel').textContent = t.said; $('saidText').textContent = d.q; $('said').hidden = false; }
+      if (localStorage.getItem(usedKey)) done(t.used, '');
+    }
+    $('form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const m = $('text').value.trim();
+      if (!m || !valid) return;
+      $('send').disabled = true; $('send').textContent = t.sending; $('msg').textContent = '';
+      try {
+        const r = await fetch(`${d.h}/${d.t}`, { method: 'POST', body: JSON.stringify({ s: d.s, a: 'text', n: d.n, m }) });
+        if (!r.ok) throw new Error(String(r.status));
+        try { localStorage.setItem(usedKey, '1'); } catch {}
+        done(t.ok, 'ok');
+      } catch {
+        $('send').disabled = false; $('send').textContent = t.send;
+        $('msg').textContent = t.fail; $('msg').className = 'msg err';
+      }
+    });
+    // Ctrl/Cmd+Enter ile gönder (fiziksel klavyesi olan tabletler için).
+    $('text').addEventListener('keydown', e => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) $('form').requestSubmit(); });
+    if (valid && !localStorage.getItem(usedKey)) $('text').focus();
+  </script>
+</body>
+</html>
