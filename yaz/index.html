@@ -20,7 +20,9 @@
     header span { color: var(--muted); font-size: 14px; margin-left: auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 55%; }
     .said { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; font-size: 15px; color: var(--muted); white-space: pre-wrap; }
     .said small { display: block; font-size: 12px; margin-bottom: 4px; color: var(--muted); opacity: 0.8; }
+    .said { max-height: 45dvh; overflow-y: auto; }
     .said p { margin: 0; color: var(--fg); }
+    .said em { display: block; margin-top: 8px; font-style: normal; font-size: 13px; }
     textarea { width: 100%; min-height: 150px; resize: vertical; font: inherit; font-size: 17px; color: var(--fg); background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
     textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
     button { font: inherit; font-weight: 600; font-size: 17px; border: 0; border-radius: 14px; padding: 14px; background: var(--accent); color: var(--accent-ink); }
@@ -35,7 +37,7 @@
 <body>
   <main>
     <header><img src="../assets/logo.svg" alt=""><b>Gözcü</b><span id="project"></span></header>
-    <div class="said" id="said" hidden><small id="saidLabel"></small><p id="saidText"></p></div>
+    <div class="said" id="said" hidden><small id="saidLabel"></small><p id="saidText"></p><em id="saidMore" hidden></em></div>
     <form id="form">
       <textarea id="text" maxlength="2000" required></textarea>
     </form>
@@ -45,11 +47,11 @@
   </main>
   <script>
     const TEXT = {
-      tr: { said: 'Claude\'un son cevabı', ph: 'Claude\'a ne yazmak istersin?', send: 'Gönder', sending: 'Gönderiliyor…',
+      tr: { said: 'Claude\'un son cevabı', more: 'Cevabın devamı bilgisayardaki terminalde.', ph: 'Claude\'a ne yazmak istersin?', send: 'Gönder', sending: 'Gönderiliyor…',
         ok: 'Gönderildi. Gözcü mesajını terminale yazdı; Claude bitirince yine bildirim gelir.', fail: 'Gönderilemedi. İnternet bağlantını kontrol edip tekrar dene.',
         used: 'Bu bağlantı zaten kullanıldı. Yeni mesaj için bir sonraki bildirimdeki "Yanıt yaz" düğmesine bas.', bad: 'Bu bağlantı eksik ya da bozuk. Telefondaki Gözcü bildiriminden aç.',
         hint: 'Bu bağlantı tek kullanımlıktır ve 30 dakika geçerlidir. Bu arada bilgisayardan yazarsan geçersiz olur.' },
-      en: { said: 'Claude\'s last reply', ph: 'What do you want to tell Claude?', send: 'Send', sending: 'Sending…',
+      en: { said: 'Claude\'s last reply', more: 'The rest of the reply is in the terminal on your computer.', ph: 'What do you want to tell Claude?', send: 'Send', sending: 'Sending…',
         ok: 'Sent. Gözcü typed your message into the terminal; you will get another notification when Claude is done.', fail: 'Couldn\'t send. Check your connection and try again.',
         used: 'This link has already been used. For a new message, tap "Reply" on the next notification.', bad: 'This link is incomplete or broken. Open it from the Gözcü notification on your phone.',
         hint: 'This link works once and for 30 minutes. It stops working if you type on the computer in the meantime.' },
@@ -72,7 +74,11 @@
     if (!valid) done(t.bad, 'err');
     else {
       if (typeof d.p === 'string') $('project').textContent = d.p;
-      if (typeof d.q === 'string' && d.q) { $('saidLabel').textContent = t.said; $('saidText').textContent = d.q; $('said').hidden = false; }
+      if (typeof d.q === 'string' && d.q) {
+        $('saidLabel').textContent = t.said; $('saidText').textContent = d.q; $('said').hidden = false;
+        // Uzun cevaplar bildirime sığsın diye sonu kesilir; kesildiyse devamının nerede olduğu yazılır.
+        if (d.q.endsWith('…')) { $('saidMore').textContent = t.more; $('saidMore').hidden = false; }
+      }
       if (localStorage.getItem(usedKey)) done(t.used, '');
     }
     $('form').addEventListener('submit', async e => {
