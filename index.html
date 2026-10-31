@@ -6,7 +6,7 @@
   <title>Gözcü — every Claude Code session, one window</title>
   <meta name="description" content="Gözcü runs all your Claude Code terminals in one Windows app, lights up the one waiting for you and lets you approve Claude's requests from your phone.">
   <link rel="canonical" href="https://jantecreative.github.io/gozcu-site/">
-  <meta name="theme-color" content="#16181e">
+  <meta name="theme-color" content="#1b1b1f">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Gözcü">
   <meta property="og:url" content="https://jantecreative.github.io/gozcu-site/">
@@ -40,341 +40,139 @@
     "publisher": { "@type": "Organization", "name": "Jante Creative", "email": "jantecreative@gmail.com" }
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="nav">
-    <a class="brand" href="#top"><img src="assets/gozcu-logo.svg" alt="Gözcü" width="137" height="26"></a>
-    <nav aria-label="Primary">
-      <a href="#features" data-i18n="nav.features">Features</a>
-      <a href="#reminders" data-i18n="nav.reminders">Reminders</a>
-      <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
-      <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
-      <a href="#faq" data-i18n="nav.faq">FAQ</a>
-    </nav>
-    <div class="nav-end">
-      <div class="lang" role="group" aria-label="Language">
-        <button data-lang="en" aria-pressed="true">EN</button>
-        <button data-lang="tr" aria-pressed="false">TR</button>
+    <div class="nav-in">
+      <a class="brand" href="#top"><img src="assets/logo.svg" alt="" width="22" height="22"><span>Gözcü</span></a>
+      <nav aria-label="Primary">
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#reminders" data-i18n="nav.reminders">Reminders</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </nav>
+      <div class="nav-end">
+        <div class="lang" role="group" aria-label="Language">
+          <button data-lang="en" aria-pressed="true">EN</button>
+          <button data-lang="tr" aria-pressed="false">TR</button>
+        </div>
+        <a class="btn btn-accent btn-sm" href="#download" data-download>
+          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>
+          <span data-i18n="cta.downloadShort">Download</span>
+        </a>
       </div>
-      <a class="btn btn-primary btn-sm" href="#download" data-download data-i18n="cta.downloadShort">Download</a>
     </div>
   </header>
 
   <main id="top">
-    <!-- Giriş: canlı demo -->
     <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow reveal"><img src="assets/claude.svg" alt="" width="14" height="14"><span data-i18n="hero.eyebrow">For Claude Code on Windows</span></p>
-        <h1 class="reveal" data-i18n="hero.title">Know which Claude&nbsp;Code session needs&nbsp;you.</h1>
-        <p class="lede reveal" data-i18n="hero.lede">Gözcü runs all your Claude Code terminals in one window, lights up the one that's waiting, and lets you approve Claude's requests from your phone.</p>
-        <div class="hero-cta reveal">
-          <a class="btn btn-primary" href="#download" data-download>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3zm8.5-1.2L21 3v8.5h-9.5zM3 12.5h7.5v7.1L3 18.5zm8.5 0H21V21l-9.5-1.3z"/></svg>
-            <span data-i18n="cta.download">Download free for Windows</span>
-          </a>
-          <a class="btn btn-ghost" href="#pricing" data-i18n="cta.pro">Gözcü Pro · $6.99 once</a>
-        </div>
-        <p class="ss-note reveal"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"/></svg><span data-i18n="ss.note">The installer isn't code-signed yet, so Windows SmartScreen will probably warn you. Click <b>More info</b>, then <b>Run anyway</b>.</span></p>
-        <p class="hero-note reveal" data-i18n="hero.note">Uses your own Claude subscription · Never touches your Claude settings · Data stays on your PC</p>
+      <h1 data-i18n="hero.title">Know which Claude&nbsp;Code session needs&nbsp;you.</h1>
+      <p class="lede" data-i18n="hero.lede">Gözcü runs all your Claude Code terminals in one window, lights up the one that's waiting, and lets you approve Claude's requests from your phone.</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent btn-lg" href="#download" data-download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3zm8.5-1.2L21 3v8.5h-9.5zM3 12.5h7.5v7.1L3 18.5zm8.5 0H21V21l-9.5-1.3z"/></svg>
+          <span class="two"><b data-i18n="cta.download">Download free for Windows</b><small data-i18n="cta.downloadSub">Windows 10 and 11 · 111 MB</small></span>
+        </a>
+        <a class="link" href="#pricing" data-i18n="cta.pro">Gözcü Pro · $6.99 once</a>
       </div>
-
-      <div class="stage reveal" aria-hidden="true">
-        <div class="glow"></div>
-        <div class="app" id="demo">
-          <div class="app-bar">
-            <span class="app-brand"><img src="assets/logo.svg" alt="" width="16" height="16">Gözcü</span>
-            <span class="tally"><i class="d st-wait"></i><b id="t-wait">0</b><i class="d st-work"></i><b id="t-work">2</b><i class="d st-done"></i><b id="t-done">1</b></span>
-            <span class="usage-pill">
-              <img src="assets/claude.svg" alt="" width="11" height="11">
-              <span class="ul" data-i18n="demo.5h">5h</span>
-              <span class="ubar"><span id="u-fill"></span></span>
-              <b id="u-pct">48%</b>
-              <span class="ueta" id="u-eta"></span>
-            </span>
-            <span class="wins"><i>&#x2500;</i><i>&#x25A2;</i><i>&#x2715;</i></span>
-          </div>
-          <div class="app-body">
-            <ul class="rail">
-              <li class="row st-work is-current" id="r-a"><span class="av" style="--h:20">ST<i class="pres"></i></span><span class="tx"><b>storefront</b><small id="a-task">Edit(cart.ts)</small></span></li>
-              <li class="row st-work" id="r-b"><span class="av" style="--h:150">MO<i class="pres"></i></span><span class="tx"><b>mobile-app</b><small data-i18n="demo.taskB">Write(colors.ts)</small></span></li>
-              <li class="row st-done" id="r-c"><span class="av" style="--h:250">AP<i class="pres"></i></span><span class="tx"><b>api</b><small data-i18n="demo.done">Done, your turn</small></span></li>
-              <li class="row st-idle" id="r-d"><span class="av" style="--h:320">AD<i class="pres"></i></span><span class="tx"><b>admin-panel</b><small data-i18n="demo.idle">Waiting for your message</small></span></li>
-            </ul>
-            <div class="pane" id="pane">
-              <div class="phead"><span class="av sm" style="--h:20">ST</span><b>storefront</b><span class="path">C:\dev\storefront</span><span class="chip">main</span></div>
-              <pre class="term" id="term"></pre>
-              <div class="ask" id="ask">
-                <span><span data-i18n="demo.askText">Claude wants to run</span> <code>npm test</code></span>
-                <span class="ask-btns"><span class="yes" data-i18n="demo.allow">Allow</span><span class="no" data-i18n="demo.deny">Deny</span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- iPhone 16 Pro oranlarında (71,5 × 149,6 mm), iOS kilit ekranı; ntfy bildirimi basılı tutunca düğmelerini açar. -->
-        <div class="phone" id="phone" aria-hidden="true">
-          <span class="hw hw-action"></span><span class="hw hw-up"></span><span class="hw hw-down"></span><span class="hw hw-power"></span><span class="hw hw-cam"></span>
-          <div class="bezel">
-            <div class="screen" id="screen">
-              <div class="island"></div>
-              <div class="sbar">
-                <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-                <svg viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.2 2.5l1.3-1.3A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .5 3.4l1.3 1.3A8.7 8.7 0 0 1 8 2.2Zm0 3.7c1.4 0 2.7.5 3.6 1.4l1.3-1.3A7 7 0 0 0 8 4a7 7 0 0 0-4.9 2l1.3 1.3c1-.9 2.2-1.4 3.6-1.4Zm0 3.6c-.5 0-1 .2-1.3.6L8 11.5l1.3-1.4c-.3-.4-.8-.6-1.3-.6Z"/></svg>
-                <span class="batt"><i></i></span>
-              </div>
-              <div class="ph-date" id="ph-date">Thursday, October 23</div>
-              <div class="ph-time" id="ph-time">21:42</div>
-              <div class="dim"></div>
-              <div class="toast" id="toast">
-                <div class="notif" id="notif">
-                  <img src="assets/ntfy.png" alt="" width="34" height="34">
-                  <div>
-                    <div class="n-head"><b><span>storefront</span> <span data-i18n="demo.waiting">is waiting for you</span></b><small data-i18n="demo.now">now</small></div>
-                    <p><span data-i18n="demo.askText">Claude wants to run</span> npm test</p>
-                  </div>
-                </div>
-                <div class="acts"><span class="t-yes" id="t-yes" data-i18n="demo.allow">Allow</span><span data-i18n="demo.deny">Deny</span></div>
-              </div>
-              <div class="qbtn q-left"><svg viewBox="0 0 256 256"><path d="M184,16H72A16,16,0,0,0,56,32V77.33a16.12,16.12,0,0,0,3.2,9.6L80,114.67V224a16,16,0,0,0,16,16h64a16,16,0,0,0,16-16V114.67l20.8-27.74a16.12,16.12,0,0,0,3.2-9.6V32A16,16,0,0,0,184,16ZM136,152a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0ZM72,56V32H184V56Z"/></svg></div>
-              <div class="qbtn q-right"><svg viewBox="0 0 256 256"><path d="M208,56H180.28L166.65,35.56A8,8,0,0,0,160,32H96a8,8,0,0,0-6.65,3.56L75.71,56H48A24,24,0,0,0,24,80V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm-44,76a36,36,0,1,1-36-36A36,36,0,0,1,164,132Z"/></svg></div>
-              <div class="home-ind"></div>
-              <div class="tap" id="tap"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p class="hero-note" data-i18n="hero.note">Uses your own Claude subscription · Never touches your Claude settings · Data stays on your PC</p>
     </section>
 
-    <!-- Güven şeridi -->
-    <section class="strip">
-      <span class="reveal"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg><span data-i18n="strip.1">Works with Claude Pro &amp; Max</span></span>
-      <span class="reveal"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg><span data-i18n="strip.2">Real Claude Code terminals, not a wrapper chat</span></span>
-      <span class="reveal"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg><span data-i18n="strip.3">Your Claude settings stay untouched</span></span>
-      <span class="reveal"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg><span data-i18n="strip.4">English &amp; Türkçe</span></span>
+    <!-- Gerçek uygulama, Windows masaüstünde -->
+    <section class="desk-wrap" aria-label="Screenshot">
+      <figure class="desk">
+        <div class="win">
+          <img data-shot="izgara" src="assets/shots/izgara-en.webp" width="1600" height="900" alt="Gözcü with four Claude Code sessions in a grid. The storefront session is asking for permission to run npm test, with Allow and Deny buttons." fetchpriority="high">
+          <span class="caption-btns" aria-hidden="true">
+            <i><svg viewBox="0 0 10 10"><path d="M0 5h10"/></svg></i>
+            <i><svg viewBox="0 0 10 10"><rect x=".5" y=".5" width="9" height="9" rx="1"/></svg></i>
+            <i><svg viewBox="0 0 10 10"><path d="M0 0l10 10M10 0 0 10"/></svg></i>
+          </span>
+        </div>
+        <div class="taskbar" aria-hidden="true">
+          <span class="tb-start"><i></i><i></i><i></i><i></i></span>
+          <span class="tb-app is-open"><img src="assets/logo.svg" alt=""></span>
+          <span class="tb-clock" id="clock">14:20</span>
+        </div>
+      </figure>
+      <figcaption class="desk-cap" data-i18n="desk.cap">This is the real app: four Claude Code sessions, one waiting for permission.</figcaption>
     </section>
 
-    <!-- Özellikler -->
     <section class="features" id="features">
-      <h2 class="reveal" data-i18n="feat.title">Stop tab-hunting for the terminal that's stuck.</h2>
-      <p class="sub reveal" data-i18n="feat.sub">Everything you need to run five Claude Code sessions without babysitting them.</p>
-      <div class="grid">
-        <article class="card reveal">
-          <div class="art art-status" aria-hidden="true">
-            <ul class="mrail" id="sc-status">
-              <li class="row" data-k="a"><span class="av" style="--h:20">ST<i class="pres"></i></span><span class="tx"><b>storefront</b><small></small></span></li>
-              <li class="row" data-k="b"><span class="av" style="--h:150">MO<i class="pres"></i></span><span class="tx"><b>mobile-app</b><small></small></span></li>
-              <li class="row" data-k="c"><span class="av" style="--h:250">AP<i class="pres"></i></span><span class="tx"><b>api</b><small></small></span></li>
-            </ul>
-          </div>
+      <h2 data-i18n="feat.title">Stop tab-hunting for the terminal that's stuck.</h2>
+      <p class="sub" data-i18n="feat.sub">Everything you need to run five Claude Code sessions without babysitting them.</p>
+
+      <div class="cards">
+        <article class="card">
           <h3 data-i18n="f1.t">Status at a glance</h3>
           <p data-i18n="f1.d">Blue is working, amber is waiting for you, green is done. The session that needs you rises to the top.</p>
+          <div class="shot"><img data-shot="durum" src="assets/shots/durum-en.webp" width="320" height="260" alt="" loading="lazy"></div>
         </article>
-        <article class="card reveal">
-          <div class="art art-notify" aria-hidden="true">
-            <div class="desk" id="sc-notify">
-              <div class="dwin"><div class="dwin-bar"><img src="assets/logo.svg" alt="" width="10" height="10">Gözcü</div><div class="dwin-body"><span class="dl"></span><span class="dl s"></span><span class="dl"></span><div class="dask"><span data-i18n="demo.allow">Allow</span></div></div></div>
-              <div class="wtoast">
-                <div class="wt-head"><img src="assets/logo.svg" alt="" width="12" height="12">Gözcü<span>✕</span></div>
-                <b><span>storefront</span> <span data-i18n="demo.waiting">is waiting for you</span></b>
-                <small><span data-i18n="demo.askText">Claude wants to run</span> npm test</small>
-              </div>
-              <div class="snd"><svg viewBox="0 0 256 256"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81Z"/></svg><i></i><i></i></div>
-              <div class="taskbar"><i class="tb-win"></i><i></i><i class="tb-app"></i><i></i></div>
-              <svg class="cursor" viewBox="0 0 16 22"><path d="M1 1v17l4.2-4.1 2.9 6.6 2.6-1.1-2.9-6.5H14Z"/></svg>
-            </div>
-          </div>
-          <h3 data-i18n="f2.t">A sound and a notification</h3>
-          <p data-i18n="f2.d">Get pinged the moment Claude asks for permission or finishes. Click the notification to jump straight to that terminal.</p>
+        <article class="card wide">
+          <h3 data-i18n="f2b.t">Never miss a permission prompt</h3>
+          <p data-i18n="f2b.d">When Claude asks to run a command, that terminal turns amber with Allow and Deny, a sound plays and Windows shows a notification. Click it to jump straight there.</p>
+          <div class="shot pin-right"><img data-shot="izin" src="assets/shots/izin-en.webp" width="624" height="260" alt="" loading="lazy"></div>
         </article>
-        <article class="card reveal pro">
-          <span class="pro-badge">Pro</span>
-          <div class="art art-remote" aria-hidden="true">
-            <div class="remote" id="sc-remote">
-              <div class="lap"><div class="lap-scr"><div class="row"><span class="av" style="--h:20">ST<i class="pres"></i></span><span class="tx"><b>storefront</b><small></small></span></div></div><div class="lap-base"></div></div>
-              <div class="pkt"><i></i><i></i><i></i></div>
-              <div class="mph"><div class="mph-scr"><span class="mph-isl"></span>
-                <div class="mn"><img src="assets/ntfy.png" alt="" width="14" height="14"><span><b>storefront</b><small>npm test</small></span></div>
-                <div class="macts"><span class="m-yes" data-i18n="demo.allow">Allow</span><span data-i18n="demo.deny">Deny</span></div>
-                <span class="mtap"></span>
-              </div></div>
-            </div>
-          </div>
-          <h3 data-i18n="f3.t">Approve from your phone</h3>
-          <p data-i18n="f3.d">Away from the desk? Allow or deny Claude's request right from the notification. Each button works once, for that request only.</p>
-        </article>
-        <article class="card reveal pro">
-          <span class="pro-badge">Pro</span>
-          <div class="art art-limit" aria-hidden="true">
-            <div class="lpop" id="sc-limit">
-              <div class="lrow"><span data-i18n="demo.5h">5h</span><span class="lbar"><span class="lproj"></span><span class="lfill"></span><span class="lmark"></span></span><b class="lpct">0%</b></div>
-              <div class="leta"><svg viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm56,112H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48a8,8,0,0,1,0,16Z"/></svg><span data-i18n="f4.eta">full around 14:20</span></div>
-              <div class="lrow wk"><span data-i18n="lim.week">Week</span><span class="lbar"><span class="lfill"></span></span><b class="lpct">0%</b></div>
-            </div>
-          </div>
-          <h3 data-i18n="f4.t">See your limit coming</h3>
+        <article class="card wide">
+          <h3><span data-i18n="f4.t">See your limit coming</span><span class="pro">Pro</span></h3>
           <p data-i18n="f4.d">Your 5-hour and weekly Claude limits in the title bar, plus a forecast of when you'll hit them at your current pace.</p>
+          <div class="shot"><img data-shot="limit" src="assets/shots/limit-en.webp" width="750" height="260" alt="" loading="lazy"></div>
         </article>
-        <article class="card reveal">
-          <div class="art art-report" aria-hidden="true">
-            <div class="rp" id="sc-report">
-              <div class="rp-tabs"><span data-r="7">7d</span><span data-r="30">30d</span><span data-r="90">90d</span><b class="rp-total"></b></div>
-              <div class="rp-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><div class="rp-tip"></div></div>
-            </div>
-          </div>
-          <h3 data-i18n="f5.t">Know where your tokens go</h3>
-          <p data-i18n="f5.d">A usage report by day, project, hour and model, subagents included. Read straight from Claude's own logs on your PC.</p>
+        <article class="card">
+          <h3><span data-i18n="f10.t">Reply from your phone</span><span class="pro">Pro</span></h3>
+          <p data-i18n="f10.d">When Claude finishes, the notification has a Reply button. It opens a small page with Claude's last answer, and what you type goes straight into that terminal.</p>
+          <div class="shot shot-phone"><div class="phone"><img data-shot="yaz" src="assets/shots/yaz-en.webp" width="500" height="620" alt="" loading="lazy"></div></div>
         </article>
-        <article class="card reveal">
-          <div class="art art-grid" aria-hidden="true">
-            <div class="gw" id="sc-grid">
-              <div class="gp" data-p="1"><div class="gh"><span class="av sm" style="--h:20">ST</span>storefront</div><span class="gl"></span><span class="gl"></span><span class="gl"></span></div>
-              <div class="gp" data-p="2"><div class="gh"><span class="av sm" style="--h:150">MO</span>mobile-app</div><span class="gl"></span><span class="gl"></span><span class="gl"></span></div>
-              <div class="gp" data-p="3"><div class="gh"><span class="av sm" style="--h:250">AP</span>api</div><span class="gl"></span><span class="gl"></span><span class="gl"></span></div>
-              <div class="gp" data-p="4"><div class="gh"><span class="av sm" style="--h:320">AD</span>admin-panel</div><span class="gl"></span><span class="gl"></span><span class="gl"></span></div>
-              <div class="gchip"><span class="av sm" style="--h:150">MO</span>mobile-app</div>
-              <svg class="cursor" viewBox="0 0 16 22"><path d="M1 1v17l4.2-4.1 2.9 6.6 2.6-1.1-2.9-6.5H14Z"/></svg>
-            </div>
-          </div>
-          <h3 data-i18n="f6.t">Side by side</h3>
-          <p data-i18n="f6.d">Drag sessions into a grid and watch up to six terminals at once. Grab a window by its title bar to swap it with another.</p>
+        <article class="card wide">
+          <h3><span data-i18n="f3.t">Approve from your phone</span><span class="pro">Pro</span></h3>
+          <p data-i18n="f3.d2">Pair your phone with the free ntfy app by scanning a QR code. Allow or deny Claude's request right from the notification; each button works once, for that request only.</p>
+          <div class="shot"><img data-shot="telefon" src="assets/shots/telefon-en.webp" width="624" height="260" alt="" loading="lazy"></div>
         </article>
-        <article class="card reveal">
-          <div class="art art-cost" aria-hidden="true">
-            <div class="cw" id="sc-cost">
-              <div class="cpane">
-                <div class="phead"><span class="av sm" style="--h:20">ST</span><b>storefront</b><span class="chip c-tok">0</span></div>
-                <div class="ctip"><b>Opus</b> <span class="ctip-a"></span><br><span class="ctip-b"></span></div>
-                <span class="gl"></span><span class="gl"></span>
-              </div>
-              <div class="cbar"><span class="cbar-t"></span></div>
-              <svg class="cursor" viewBox="0 0 16 22"><path d="M1 1v17l4.2-4.1 2.9 6.6 2.6-1.1-2.9-6.5H14Z"/></svg>
-            </div>
-          </div>
+        <article class="card">
           <h3 data-i18n="f7.t">Tokens and cost per terminal</h3>
           <p data-i18n="f7.d">Every terminal shows its own token count, what it would cost at API prices and how full the context is. On Pro or Max you don't pay that amount; it shows you which session is the heavy one.</p>
+          <div class="shot"><img data-shot="token" src="assets/shots/token-en.webp" width="360" height="260" alt="" loading="lazy"></div>
         </article>
-        <article class="card reveal">
-          <div class="art art-voice" aria-hidden="true">
-            <div class="vw" id="sc-voice">
-              <div class="cpane">
-                <div class="phead"><span class="av sm" style="--h:150">MO</span><b>mobile-app</b><span class="vmic"><svg viewBox="0 0 256 256"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg></span></div>
-                <pre class="vterm"><span class="m">&gt;</span> <span class="vtext"></span><span class="caret"></span></pre>
-              </div>
-              <div class="vpanel"><span class="vdot"><svg viewBox="0 0 256 256"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg></span><span class="vlabel" data-i18n="demo.listening">Listening…</span><kbd>Win+H</kbd></div>
-              <svg class="cursor" viewBox="0 0 16 22"><path d="M1 1v17l4.2-4.1 2.9 6.6 2.6-1.1-2.9-6.5H14Z"/></svg>
-            </div>
-          </div>
-          <h3 data-i18n="f8.t">Talk instead of typing</h3>
-          <p data-i18n="f8.d">The mic button opens Windows voice typing and what you say lands in the focused terminal. Paste screenshots with Ctrl+V or drop a file on the terminal.</p>
-        </article>
-        <article class="card reveal">
-          <div class="art art-lang" aria-hidden="true">
-            <div class="lw" id="sc-lang">
-              <div class="lseg"><span data-l="tr">Türkçe</span><span data-l="en">English</span><i></i></div>
-              <div class="wtoast lt">
-                <div class="wt-head"><img src="assets/logo.svg" alt="" width="12" height="12">Gözcü</div>
-                <b class="lt-t"></b>
-                <small class="lt-b"></small>
-              </div>
-            </div>
-          </div>
-          <h3 data-i18n="f9.t">Türkçe or English</h3>
-          <p data-i18n="f9.d">The interface, Windows notifications and phone notifications follow the language you choose, or Windows' own.</p>
-        </article>
-      </div>
-
-      <div class="extras reveal">
-        <h3 data-i18n="ex.title">And the small things</h3>
-        <ul>
-          <li data-i18n="ex.1">Collapse the session list when you need the room (Ctrl+Shift+L)</li>
-          <li data-i18n="ex.2">Jump to the session that's waiting with Ctrl+Shift+B</li>
-          <li data-i18n="ex.3">Separate sounds for "done" and "waiting", with adjustable volume</li>
-          <li data-i18n="ex.4">Group sessions by status or keep them in a fixed order</li>
-          <li data-i18n="ex.5">Start a new conversation or continue the last one in any project</li>
-          <li data-i18n="ex.6">Right-click copies the selection, or pastes if nothing is selected</li>
-        </ul>
       </div>
     </section>
 
-    <!-- Hatırlatmalar -->
     <section class="remind" id="reminders">
       <div class="rem-copy">
-        <p class="eyebrow reveal"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"/></svg><span data-i18n="rem.eyebrow">Reminders · works with Obsidian</span></p>
-        <h2 class="reveal" data-i18n="rem.title">Your to-do list, next to your terminals.</h2>
-        <p class="lede reveal" data-i18n="rem.lede">Gözcü reads the reminders note in your Obsidian vault, or any folder of Markdown notes. The bell in the title bar counts what's overdue and what's due today.</p>
-        <ul class="ticks">
-          <li class="reveal" data-i18n="rem.1">When Gözcü opens, a window shows what's overdue and due today. If there's nothing to do, it doesn't show up.</li>
-          <li class="reveal" data-i18n="rem.2">A morning summary as a Windows notification, and one evening follow-up if something is still open. Send them to your phone too if you like.</li>
-          <li class="reveal" data-i18n="rem.3"><b>Where you left off in Claude</b>: your last request and last edited file in each project since yesterday. One click continues that exact conversation.</li>
-          <li class="reveal" data-i18n="rem.4">Tick a box and Gözcü changes <code>[ ]</code> to <code>[x]</code> on that one line. Nothing else in your notes is written.</li>
+        <h2 data-i18n="rem.title">Your to-do list, next to your terminals.</h2>
+        <p class="lede" data-i18n="rem.lede">Gözcü reads the reminders note in your Obsidian vault, or any folder of Markdown notes. The bell in the title bar counts what's overdue and what's due today.</p>
+        <ul class="plain">
+          <li data-i18n="rem.1">When Gözcü opens, a window shows what's overdue and due today. If there's nothing to do, it doesn't show up.</li>
+          <li data-i18n="rem.2">A morning summary as a Windows notification, and one evening follow-up if something is still open. Send them to your phone too if you like.</li>
+          <li data-i18n="rem.3"><b>Where you left off in Claude</b>: your last request and last edited file in each project since yesterday. One click continues that exact conversation.</li>
+          <li data-i18n="rem.4">Tick a box and Gözcü changes <code>[ ]</code> to <code>[x]</code> on that one line. Nothing else in your notes is written.</li>
         </ul>
-        <p class="fine-left reveal" data-i18n="rem.fmt">Reads date headings like <code>## 2026-10-26</code>, tasks with a 📅 due date and your daily notes.</p>
+        <p class="fine" data-i18n="rem.fmt">Reads date headings like <code>## 2026-10-26</code>, tasks with a 📅 due date and your daily notes.</p>
       </div>
-
-      <div class="rem-stage reveal" aria-hidden="true">
-        <div class="rs" id="sc-rem">
-          <div class="rbar">
-            <span class="app-brand"><img src="assets/logo.svg" alt="" width="14" height="14">Gözcü</span>
-            <span class="rbell"><svg viewBox="0 0 256 256"><path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"/></svg><b class="rbadge">3</b></span>
-            <span class="wins"><i>&#x2500;</i><i>&#x25A2;</i><i>&#x2715;</i></span>
-          </div>
-          <div class="rbody">
-            <div class="rpane">
-              <div class="phead"><span class="av sm" style="--h:20">ST</span><b>storefront</b><span class="rp-state"></span></div>
-              <pre class="term rterm"></pre>
-            </div>
-            <div class="rdlg">
-              <div class="rd-head"><svg viewBox="0 0 256 256"><path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"/></svg><b data-i18n="rem.dlg">Reminders</b><span class="rd-date"></span></div>
-              <div class="rd-sec late"><h4><span data-i18n="rem.overdue">Overdue</span><i>1</i></h4>
-                <ul><li data-k="o1"><span class="box"></span><span class="pr p-red"></span><span class="rt"></span><span class="rdt"></span></li></ul>
-              </div>
-              <div class="rd-sec"><h4><span data-i18n="rem.today">Today</span><i class="rd-n">2</i></h4>
-                <ul><li data-k="t1"><span class="box"></span><span class="pr p-orange"></span><span class="rt"></span></li><li data-k="t2"><span class="box"></span><span class="pr p-yellow"></span><span class="rt"></span></li></ul>
-              </div>
-              <div class="rd-sec"><h4><span data-i18n="rem.claude">Where you left off in Claude</span></h4>
-                <div class="spot"><div class="sp-b"><div><b>storefront</b> <small class="sp-when"></small></div><p class="sp-q"></p><p class="sp-f"><span data-i18n="rem.lastEdit">Last edited</span>: <code>src/checkout/cart.ts</code></p></div><span class="rbtn"><svg viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"/></svg><span data-i18n="rem.resume">Continue</span></span></div>
-              </div>
-            </div>
-            <div class="wtoast rtoast">
-              <div class="wt-head"><img src="assets/logo.svg" alt="" width="12" height="12">Gözcü<span>✕</span></div>
-              <b class="rt-t"></b>
-              <small class="rt-b"></small>
-            </div>
-          </div>
-          <svg class="cursor" viewBox="0 0 16 22"><path d="M1 1v17l4.2-4.1 2.9 6.6 2.6-1.1-2.9-6.5H14Z"/></svg>
-        </div>
-      </div>
+      <div class="rem-shot shot"><img data-shot="hatirlatma" src="assets/shots/hatirlatma-en.webp" width="600" height="388" alt="" loading="lazy"></div>
     </section>
 
-    <!-- Gerçek ekran -->
-    <section class="shot">
-      <h2 class="reveal" data-i18n="shot.title">This is the real app.</h2>
-      <p class="sub reveal" data-i18n="shot.sub">Native Windows 11 look, Claude Code's own terminal, nothing in between.</p>
-      <div class="shot-frame reveal" id="shot">
-        <img id="shot-img" src="assets/screenshot.png" alt="Gözcü showing four Claude Code sessions in a grid, one asking for permission" width="1600" height="900" loading="lazy">
-      </div>
+    <section class="more">
+      <h2 data-i18n="more.title">And there's more</h2>
+      <ul class="more-list">
+        <li><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"/></svg><div><b data-i18n="f5.t">Know where your tokens go</b><p data-i18n="f5.d">A usage report by day, project, hour and model, subagents included. Read straight from Claude's own logs on your PC.</p></div></li>
+        <li><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-96,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Zm0,64H152V152h48v48Z"/></svg><div><b data-i18n="f6.t">Side by side</b><p data-i18n="f6.d">Drag sessions into a grid and watch up to six terminals at once. Grab a window by its title bar to swap it with another.</p></div></li>
+        <li><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M128,176a48.05,48.05,0,0,0,48-48V64a48,48,0,0,0-96,0v64A48.05,48.05,0,0,0,128,176ZM96,64a32,32,0,0,1,64,0v64a32,32,0,0,1-64,0Zm40,143.6V240a8,8,0,0,1-16,0V207.6A80.11,80.11,0,0,1,48,128a8,8,0,0,1,16,0,64,64,0,0,0,128,0,8,8,0,0,1,16,0A80.11,80.11,0,0,1,136,207.6Z"/></svg><div><b data-i18n="f8.t">Talk instead of typing</b><p data-i18n="f8.d">The mic button opens Windows voice typing and what you say lands in the focused terminal. Paste screenshots with Ctrl+V or drop a file on the terminal.</p></div></li>
+        <li><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M247.15,212.42l-56-112a8,8,0,0,0-14.31,0l-21.71,43.43A88,88,0,0,1,108,126.93,103.65,103.65,0,0,0,135.69,64H160a8,8,0,0,0,0-16H104V32a8,8,0,0,0-16,0V48H32a8,8,0,0,0,0,16h87.63A87.76,87.76,0,0,1,96,116.35a87.74,87.74,0,0,1-19-31,8,8,0,1,0-15.08,5.34A103.63,103.63,0,0,0,84,127a87.55,87.55,0,0,1-52,17,8,8,0,0,0,0,16,103.46,103.46,0,0,0,64-22.08,104.18,104.18,0,0,0,51.44,21.31l-26.6,53.19a8,8,0,0,0,14.31,7.16L148.94,192h70.11l13.79,27.58A8,8,0,0,0,240,224a8,8,0,0,0,7.15-11.58ZM156.94,176,184,121.89,211.05,176Z"/></svg><div><b data-i18n="f9.t">Türkçe or English</b><p data-i18n="f9.d">The interface, Windows notifications and phone notifications follow the language you choose, or Windows' own.</p></div></li>
+        <li><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,56H80V200H40ZM216,200H96V56H216V200Z"/></svg><div><b data-i18n="m1.t">Room when you need it</b><p data-i18n="ex.1">Collapse the session list when you need the room (Ctrl+Shift+L)</p></div></li>
+        <li><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17ZM109.37,214l10.47-52.38a8,8,0,0,0-5-9.06L62,132.71l84.62-90.66L136.16,94.43a8,8,0,0,0,5,9.06l52.8,19.8Z"/></svg><div><b data-i18n="m2.t">Jump to the one waiting</b><p data-i18n="ex.2">Jump to the session that's waiting with Ctrl+Shift+B</p></div></li>
+        <li><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M155.51,24.81a8,8,0,0,0-8.42.88L77.25,80H32A16,16,0,0,0,16,96v64a16,16,0,0,0,16,16H77.25l69.84,54.31A8,8,0,0,0,160,224V32A8,8,0,0,0,155.51,24.81ZM32,96H72v64H32ZM144,207.64,88,164.09V91.91l56-43.55Zm54-106.08a40,40,0,0,1,0,52.88,8,8,0,0,1-12-10.58,24,24,0,0,0,0-31.72,8,8,0,0,1,12-10.58ZM248,128a79.9,79.9,0,0,1-20.37,53.34,8,8,0,0,1-11.92-10.67,64,64,0,0,0,0-85.33,8,8,0,1,1,11.92-10.67A79.83,79.83,0,0,1,248,128Z"/></svg><div><b data-i18n="m3.t">Two sounds</b><p data-i18n="ex.3">Separate sounds for "done" and "waiting", with adjustable volume</p></div></li>
+        <li><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L44.59,96H72a8,8,0,0,1,0,16H24a8,8,0,0,1-8-8V56a8,8,0,0,1,16,0V85.8L60.25,60A96,96,0,0,1,224,128Z"/></svg><div><b data-i18n="m4.t">Pick up where you left off</b><p data-i18n="ex.5">Start a new conversation or continue the last one in any project</p></div></li>
+        <li><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M168,152a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,152Zm-8-40H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16Zm56-64V216a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V48A16,16,0,0,1,56,32H92.26a47.92,47.92,0,0,1,71.48,0H200A16,16,0,0,1,216,48ZM96,64h64a32,32,0,0,0-64,0ZM200,48H173.25A47.93,47.93,0,0,1,176,64v8a8,8,0,0,1-8,8H88a8,8,0,0,1-8-8V64a47.93,47.93,0,0,1,2.75-16H56V216H200Z"/></svg><div><b data-i18n="m5.t">Right-click copy and paste</b><p data-i18n="ex.6">Right-click copies the selection, or pastes if nothing is selected</p></div></li>
+      </ul>
     </section>
 
-    <!-- Nasıl çalışır -->
-    <section class="steps">
-      <h2 class="reveal" data-i18n="steps.title">Up and running in a minute.</h2>
-      <ol>
-        <li class="reveal"><span class="num">1</span><h3 data-i18n="s1.t">Download Gözcü</h3><p data-i18n="s1.d">A small Windows installer. The welcome tour checks that Claude Code is installed.</p></li>
-        <li class="reveal"><span class="num">2</span><h3 data-i18n="s2.t">Add your project folders</h3><p data-i18n="s2.d">Gözcü opens Claude Code in each one, signed in with your own account.</p></li>
-        <li class="reveal"><span class="num">3</span><h3 data-i18n="s3.t">Get back to work</h3><p data-i18n="s3.d">Gözcü watches every session and tells you the moment one needs you.</p></li>
-      </ol>
-    </section>
-
-    <!-- Fiyat -->
     <section class="pricing" id="pricing">
-      <h2 class="reveal" data-i18n="price.title">Free to use. Pro is a one-time $6.99.</h2>
-      <p class="sub reveal" data-i18n="price.sub">No subscription. You already pay for Claude; Gözcü shouldn't be another monthly bill.</p>
+      <h2 data-i18n="price.title">Free to use. Pro is a one-time $6.99.</h2>
+      <p class="sub" data-i18n="price.sub">No subscription. You already pay for Claude; Gözcü shouldn't be another monthly bill.</p>
       <div class="plans">
-        <div class="plan reveal">
+        <div class="plan">
           <h3 data-i18n="free.t">Free</h3>
           <p class="amount">$0</p>
           <ul>
@@ -385,103 +183,76 @@
             <li data-i18n="free.5">Tokens and API-price cost per terminal</li>
             <li data-i18n="free.6">Reminders from your Obsidian notes</li>
           </ul>
-          <a class="btn btn-ghost" href="#download" data-download data-i18n="cta.downloadShort">Download</a>
+          <a class="btn btn-quiet" href="#download" data-download data-i18n="cta.downloadShort">Download</a>
         </div>
-        <div class="plan plan-pro reveal">
-          <span class="pro-badge">Pro</span>
+        <div class="plan plan-pro">
           <h3>Gözcü Pro</h3>
           <p class="amount">$6.99 <small data-i18n="pro.once">one-time</small></p>
           <ul>
             <li data-i18n="pro.1">Unlimited terminals</li>
             <li data-i18n="pro.2">Phone notifications, optionally only when you're away</li>
             <li data-i18n="pro.3">Allow / Deny from your phone</li>
+            <li data-i18n="pro.7">Reply to Claude from your phone</li>
             <li data-i18n="pro.4">Limit forecast</li>
             <li data-i18n="pro.5">90-day usage report</li>
             <li data-i18n="pro.6">Up to 3 computers</li>
           </ul>
-          <a class="btn btn-primary" href="https://buy.polar.sh/polar_cl_0uFCi9zhqhfiUrKpXcqzre78JMLaMTwF9RM2N48Z8l7" data-i18n="cta.buy">Buy Gözcü Pro</a>
+          <a class="btn btn-accent" href="https://buy.polar.sh/polar_cl_0uFCi9zhqhfiUrKpXcqzre78JMLaMTwF9RM2N48Z8l7" data-i18n="cta.buy">Buy Gözcü Pro</a>
           <p class="fine" data-i18n="pro.fine">Secure checkout by Polar. Your license key arrives by email.</p>
         </div>
       </div>
-      <p class="fine reveal" data-i18n="price.refund">Not for you? Full refund within 14 days. <a href="#refunds">How refunds work</a></p>
+      <p class="fine center" data-i18n="price.refund">Not for you? Full refund within 14 days. <a href="#refunds">How refunds work</a></p>
     </section>
 
-    <!-- Gizlilik ve güvenlik -->
     <section class="privacy" id="privacy">
-      <h2 class="reveal" data-i18n="pv.title">Your code and notes stay on your PC.</h2>
-      <p class="sub reveal" data-i18n="pv.sub">Gözcü has no account, no analytics and no server of its own. Here is exactly what it touches.</p>
-      <div class="pv-grid">
-        <div class="pv reveal">
-          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M208,40H48A24,24,0,0,0,24,64V176a24,24,0,0,0,24,24h72v16H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16H136V200h72a24,24,0,0,0,24-24V64A24,24,0,0,0,208,40ZM48,56H208a8,8,0,0,1,8,8v80H40V64A8,8,0,0,1,48,56ZM208,184H48a8,8,0,0,1-8-8V160H216v16A8,8,0,0,1,208,184Z"/></svg>
-          <h3 data-i18n="pv.1t">Data stays on this computer</h3>
-          <p data-i18n="pv.1d">Usage reports are read from Claude Code's own log files, reminders from your notes folder. By default nothing leaves your PC, and there's no telemetry.</p>
-        </div>
-        <div class="pv reveal">
-          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M149.66,138.34a8,8,0,0,0-11.32,0L120,156.69,99.31,136l18.35-18.34a8,8,0,0,0-11.32-11.32L88,124.69,69.66,106.34a8,8,0,0,0-11.32,11.32L64.69,124,41.37,147.31a32,32,0,0,0,0,45.26l5.38,5.37-28.41,28.4a8,8,0,0,0,11.32,11.32l28.4-28.41,5.37,5.38a32,32,0,0,0,45.26,0L132,191.31l6.34,6.35a8,8,0,0,0,11.32-11.32L131.31,168l18.35-18.34A8,8,0,0,0,149.66,138.34Zm-52.29,65a16,16,0,0,1-22.62,0L52.69,181.25a16,16,0,0,1,0-22.62L76,135.31,120.69,180Zm140.29-185a8,8,0,0,0-11.32,0l-28.4,28.41-5.37-5.38a32.05,32.05,0,0,0-45.26,0L124,64.69l-6.34-6.35a8,8,0,0,0-11.32,11.32l80,80a8,8,0,0,0,11.32-11.32L191.31,132l23.32-23.31a32,32,0,0,0,0-45.26l-5.38-5.37,28.41-28.4A8,8,0,0,0,237.66,18.34Zm-34.35,79L180,120.69,135.31,76l23.32-23.31a16,16,0,0,1,22.62,0l22.06,22A16,16,0,0,1,203.31,97.37Z"/></svg>
-          <h3 data-i18n="pv.2t">Hooks only talk to 127.0.0.1</h3>
-          <p data-i18n="pv.2d">Each session reports its status to a small server inside Gözcü that listens on 127.0.0.1 only and checks a random key created at every launch.</p>
-        </div>
-        <div class="pv reveal">
-          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></svg>
-          <h3 data-i18n="pv.3t">Your Claude settings stay as they are</h3>
-          <p data-i18n="pv.3d">Gözcü never edits your global Claude settings, hooks or CLAUDE.md. Its hooks live in a separate settings file passed only to the sessions Gözcü starts.</p>
-        </div>
-        <div class="pv reveal">
-          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16ZM72,64H184V192H72Zm8-32h96a8,8,0,0,1,8,8v8H72V40A8,8,0,0,1,80,32Zm96,192H80a8,8,0,0,1-8-8v-8H184v8A8,8,0,0,1,176,224Z"/></svg>
-          <h3 data-i18n="pv.4t">Phone notifications are opt-in</h3>
-          <p data-i18n="pv.4d">They're off until you turn them on and go through ntfy (ntfy.sh, or your own server). A notification shows the project, the file or command Claude wants to use and the first lines of its last reply; turn off “Show details” and only the project name and status are sent. Reminder summaries reach your phone only if you switch that on separately.</p>
-        </div>
-        <div class="pv reveal">
-          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216.57,39.43A80,80,0,0,0,83.91,120.78L28.69,176A15.86,15.86,0,0,0,24,187.31V216a16,16,0,0,0,16,16H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A79.73,79.73,0,0,0,160,176h.1A80,80,0,0,0,216.57,39.43ZM224,98.1c-1.09,34.09-29.75,61.86-63.89,61.9H160a63.7,63.7,0,0,1-23.65-4.51,8,8,0,0,0-8.84,1.68L116.69,168H96a8,8,0,0,0-8,8v16H72a8,8,0,0,0-8,8v16H40V187.31l58.83-58.82a8,8,0,0,0,1.68-8.84A63.72,63.72,0,0,1,96,95.92c0-34.14,27.81-62.8,61.9-63.89A64,64,0,0,1,224,98.1ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></svg>
-          <h3 data-i18n="pv.5t">License check through Polar</h3>
-          <p data-i18n="pv.5d">With a Pro key, Gözcü sends the key and your computer's name to Polar to activate it, then checks it once a day. Offline, Pro keeps working for 14 days. The free version doesn't contact Polar.</p>
-        </div>
-        <div class="pv reveal">
-          <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M88,96a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,96Zm8,40h64a8,8,0,0,0,0-16H96a8,8,0,0,0,0,16Zm32,16H96a8,8,0,0,0,0,16h32a8,8,0,0,0,0-16ZM224,48V156.69A15.86,15.86,0,0,1,219.31,168L168,219.31A15.86,15.86,0,0,1,156.69,224H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM48,208H152V160a8,8,0,0,1,8-8h48V48H48Zm120-40v28.7L196.69,168Z"/></svg>
-          <h3 data-i18n="pv.6t">It doesn't call any AI</h3>
-          <p data-i18n="pv.6d">Gözcü runs the Claude Code already installed on your PC, signed in with your own account. Your prompts go from Claude Code to Anthropic as they always do, not through Gözcü.</p>
-        </div>
-      </div>
-      <p class="pv-net reveal" data-i18n="pv.net">The only places Gözcü connects to on the internet: Polar, if you've entered a license key, and your ntfy server, if phone notifications are on.</p>
+      <h2 data-i18n="pv.title">Your code and notes stay on your PC.</h2>
+      <p class="sub" data-i18n="pv.sub">Gözcü has no account, no analytics and no server of its own. Here is exactly what it touches.</p>
+      <dl class="pv-list">
+        <div><dt data-i18n="pv.1t">Data stays on this computer</dt><dd data-i18n="pv.1d">Usage reports are read from Claude Code's own log files, reminders from your notes folder. By default nothing leaves your PC, and there's no telemetry.</dd></div>
+        <div><dt data-i18n="pv.2t">Hooks only talk to 127.0.0.1</dt><dd data-i18n="pv.2d">Each session reports its status to a small server inside Gözcü that listens on 127.0.0.1 only and checks a random key created at every launch.</dd></div>
+        <div><dt data-i18n="pv.3t">Your Claude settings stay as they are</dt><dd data-i18n="pv.3d">Gözcü never edits your global Claude settings, hooks or CLAUDE.md. Its hooks live in a separate settings file passed only to the sessions Gözcü starts.</dd></div>
+        <div><dt data-i18n="pv.4t">Phone notifications are opt-in</dt><dd data-i18n="pv.4d">They're off until you turn them on, and go through ntfy (ntfy.sh, or your own server). By default a notification shows the project, the file or command Claude wants to use and the start of its last reply. Turn off “Show details” and only the project name and status are sent; with phone approval on, the command is still shown so you know what you're allowing. Reminder summaries reach your phone only if you switch that on separately.</dd></div>
+        <div><dt data-i18n="pv.5t">License check through Polar</dt><dd data-i18n="pv.5d">With a Pro key, Gözcü sends the key and your computer's name to Polar to activate it, then checks it once a day. Offline, Pro keeps working for 14 days. The free version doesn't contact Polar.</dd></div>
+        <div><dt data-i18n="pv.6t">It doesn't call any AI</dt><dd data-i18n="pv.6d">Gözcü runs the Claude Code already installed on your PC, signed in with your own account. Your prompts go from Claude Code to Anthropic as they always do, not through Gözcü.</dd></div>
+      </dl>
+      <p class="pv-net" data-i18n="pv.net">The only places Gözcü connects to on the internet: Polar, if you've entered a license key, and your ntfy server, if phone notifications are on.</p>
 
-      <div class="refund reveal" id="refunds">
-        <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L44.59,96H72a8,8,0,0,1,0,16H24a8,8,0,0,1-8-8V56a8,8,0,0,1,16,0V85.8L60.25,60A96,96,0,0,1,224,128Z"/></svg>
-        <div>
-          <h3 data-i18n="rf.t">Refund policy</h3>
-          <p data-i18n="rf.d">If Gözcü Pro isn't right for you, email <a href="mailto:jantecreative@gmail.com">jantecreative@gmail.com</a> within 14 days of purchase from the address you bought with. You get a full refund through Polar, our payment provider, to your original payment method. The license key stops working after the refund.</p>
-        </div>
+      <div class="refund" id="refunds">
+        <h3 data-i18n="rf.t">Refund policy</h3>
+        <p data-i18n="rf.d">If Gözcü Pro isn't right for you, email <a href="mailto:jantecreative@gmail.com">jantecreative@gmail.com</a> within 14 days of purchase from the address you bought with. You get a full refund through Polar, our payment provider, to your original payment method. The license key stops working after the refund.</p>
       </div>
     </section>
 
-    <!-- SSS -->
     <section class="faq" id="faq">
-      <h2 class="reveal" data-i18n="faq.title">Questions</h2>
-      <details class="reveal"><summary data-i18n="q1">Does Gözcü use its own AI or charge for tokens?</summary><p data-i18n="a1">No. Gözcü opens the Claude Code already installed on your PC, signed in with your own Claude subscription. It never calls an AI itself.</p></details>
-      <details class="reveal"><summary data-i18n="q2">Does it change my Claude Code settings?</summary><p data-i18n="a2">No. Status tracking uses a temporary settings file passed only to the sessions Gözcü starts. Your global Claude settings, hooks and CLAUDE.md stay exactly as they are.</p></details>
-      <details class="reveal"><summary data-i18n="q3">How do phone notifications work? Is approving from the phone safe?</summary><p data-i18n="a3">Gözcü uses ntfy, a free open-source notification app: scan a QR code and you're paired, no account needed. Notifications say what Claude wants to do (for example “wants to create index.html”) and show the start of its last reply; you can turn details off. With phone control on you get Allow and Deny buttons, plus a Reply button that opens a small page where you type your next message. Every button carries a one-time code that only works for that moment and stops working once you answer on the computer.</p></details>
-      <details class="reveal"><summary data-i18n="q4">Is there a Mac version?</summary><p data-i18n="a4">Not yet. Gözcü is built for Windows first, where tools like this are missing. Mac users can tell us they're interested at the email below.</p></details>
-      <details class="reveal"><summary data-i18n="q5">What do I need?</summary><p data-i18n="a5">Windows 10 or 11 and Claude Code installed with a Claude Pro or Max plan (or API access).</p></details>
-      <details class="reveal"><summary data-i18n="q6">Windows says "Windows protected your PC" when I run the installer.</summary><p data-i18n="a6">The installer isn't code-signed yet, and SmartScreen warns about unsigned apps that haven't been downloaded much. Click "More info", then "Run anyway". The installer comes straight from this site's GitHub releases.</p></details>
+      <h2 data-i18n="faq.title">Questions</h2>
+      <details><summary data-i18n="q1">Does Gözcü use its own AI or charge for tokens?</summary><p data-i18n="a1">No. Gözcü opens the Claude Code already installed on your PC, signed in with your own Claude subscription. It never calls an AI itself.</p></details>
+      <details><summary data-i18n="q2">Does it change my Claude Code settings?</summary><p data-i18n="a2">No. Status tracking uses a temporary settings file passed only to the sessions Gözcü starts. Your global Claude settings, hooks and CLAUDE.md stay exactly as they are.</p></details>
+      <details><summary data-i18n="q3">How do phone notifications work? Is approving from the phone safe?</summary><p data-i18n="a3">Gözcü uses ntfy, a free open-source notification app: scan a QR code and you're paired, no account needed. Notifications say what Claude wants to do (for example “wants to create index.html”) and show the start of its last reply; you can turn details off. With phone control on you get Allow and Deny buttons, plus a Reply button that opens a small page where you type your next message. Every button carries a one-time code that only works for that moment and stops working once you answer on the computer.</p></details>
+      <details><summary data-i18n="q4">Is there a Mac version?</summary><p data-i18n="a4">Not yet. Gözcü is built for Windows first, where tools like this are missing. Mac users can tell us they're interested at the email below.</p></details>
+      <details><summary data-i18n="q5">What do I need?</summary><p data-i18n="a5">Windows 10 or 11 and Claude Code installed with a Claude Pro or Max plan (or API access).</p></details>
+      <details><summary data-i18n="q6">Windows says "Windows protected your PC" when I run the installer.</summary><p data-i18n="a6">The installer isn't code-signed yet, and SmartScreen warns about unsigned apps that haven't been downloaded much. Click "More info", then "Run anyway". The installer comes straight from this site's GitHub releases.</p></details>
     </section>
 
-    <section class="final reveal" id="download">
-      <img class="final-logo" src="assets/gozcu-logo.svg" alt="Gözcü" width="232" height="44">
+    <section class="final" id="download">
+      <img src="assets/gozcu-logo.svg" alt="Gözcü" width="200" height="38">
       <h2 data-i18n="final.title">Let Gözcü keep watch.</h2>
-      <a class="btn btn-primary" href="#download" data-download>
+      <a class="btn btn-accent btn-lg" href="#download" data-download>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3zm8.5-1.2L21 3v8.5h-9.5zM3 12.5h7.5v7.1L3 18.5zm8.5 0H21V21l-9.5-1.3z"/></svg>
-        <span data-i18n="cta.download">Download free for Windows</span>
+        <span class="two"><b data-i18n="cta.download">Download free for Windows</b><small data-i18n="cta.downloadSub">Windows 10 and 11 · 111 MB</small></span>
       </a>
       <p class="fine" data-i18n="final.req">Windows 10 / 11 · Requires Claude Code</p>
-      <p class="ss-note"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"/></svg><span data-i18n="ss.note">The installer isn't code-signed yet, so Windows SmartScreen will probably warn you. Click <b>More info</b>, then <b>Run anyway</b>.</span></p>
+      <p class="ss-note" data-i18n="ss.note">The installer isn't code-signed yet, so Windows SmartScreen will probably warn you. Click <b>More info</b>, then <b>Run anyway</b>.</p>
     </section>
   </main>
 
   <footer class="foot">
-    <span>© 2026 <a href="https://jantecreative.com">Jante Creative</a></span>
-    <a href="mailto:jantecreative@gmail.com">jantecreative@gmail.com</a>
-    <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
-    <a href="#refunds" data-i18n="foot.refunds">Refunds</a>
-    <span class="legal" data-i18n="foot.legal">Gözcü is an independent product and is not affiliated with Anthropic. Claude and Claude Code are trademarks of Anthropic.</span>
+    <div class="foot-in">
+      <span>© 2026 <a href="https://jantecreative.com">Jante Creative</a></span>
+      <a href="mailto:jantecreative@gmail.com">jantecreative@gmail.com</a>
+      <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+      <a href="#refunds" data-i18n="foot.refunds">Refunds</a>
+      <span class="legal" data-i18n="foot.legal">Gözcü is an independent product and is not affiliated with Anthropic. Claude and Claude Code are trademarks of Anthropic.</span>
+    </div>
   </footer>
 
   <script src="main.js"></script>
